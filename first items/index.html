@@ -6,28 +6,30 @@
     <link rel="stylesheet" href="style.css">
     <style>
         svg {
-       background-color: pink;
-       width:  500;
-       height: 100;
-      }
-       
+       background-color:aliceblue;}
     </style>
 </head>
 <body>
     <script>
-   const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
- const body = d3.select("body")
- .append("svg")
- .append("rect")
- .attr("width", 25)
- .attr("height", 100)
- .attr("x", 0)
- .attr("y ", 0)
-
- svg.selectAll("rect")
-   .data(dataset)
-   .enter()
-   .append("rect")
-   .attr("x", (d, i) => {return i*30})
+      const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+  
+      const w = 1270;
+      const h =600;
+  
+      const svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+  
+      svg.selectAll("rect")
+         .data(dataset)
+         .enter()
+         .append("rect")
+         .attr("x", (d, i) => { return i * 30 })
+         .attr("y", (d, i) => {return h - 3 * d})
+         .attr("width", 25)
+         .attr("height", (d, i) => {return d *3})
+         .attr("fill", "purple")
     </script>
-</body>
+  </body>
+  
