@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title> Data Chart</title>
+    <script src="app.js"></script>
+    <script src = "https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        svg {
+       background-color: pink;
+       width:  500;
+       height: 100;
+      }
+       
+    </style>
+</head>
+<body>
+    <script>
+   const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+ const body = d3.select("body")
+ .append("svg")
+ .append("rect")
+ .attr("width", 25)
+ .attr("height", 100)
+ .attr("x", 0)
+ .attr("y ", 0)
+
+ svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", (d, i) => {return i*30})
+    </script>
+</body>
