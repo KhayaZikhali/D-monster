@@ -31,10 +31,10 @@
          .data(dataset)
          .enter()
          .append("rect")
-         .attr("x", (d, i) => { return 10 + (i * 140) })
-         .attr("y", (d, i) => {return h - 3 * d})
-         .attr("width",100)
-         .attr("height", (d, i) => {return d * 3})
+         .attr("x", (d, i) => i*30)
+         .attr("y", (d, i) => {return h-3*d})
+         .attr("width",25)
+         .attr("height", (d, i) => {return d *3 })
          .attr("fill", "purple")
          .attr("class", "bar")
          .append("title")
@@ -42,10 +42,10 @@
 
        svg.selectAll("text")  
         .data(dataset)
-        .enter;
+        .enter()
         .append("text")
-     .attr("x", (d, i) => 60+ (i * 140))
-    .attr("y", (d, i) => h - 3 * d - 5)
+     .attr("x", (d, i) =>(i * 30))
+    .attr("y", (d, i) => h - 3 * d - 5 )
      .text((d, i ) => d)
       
 

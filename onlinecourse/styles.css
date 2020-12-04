@@ -1,0 +1,30 @@
+
+   
+.bar {
+    justify-content: center;
+}
+   
+.this {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding-bottom: 10px;
+}
+   
+.bar:hover {
+    fill:red;
+    cursor: pointer;
+}
+
+.blue {
+    color: blue;
+}
+
+.tooltip {
+position: absolute;
+visibility: hidden;
+background-color: green;
+border: 1px solid;
+border-width: 5px;
+padding: 5px;
+color: black;
+}
