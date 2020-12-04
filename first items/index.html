@@ -14,22 +14,41 @@
       const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
   
       const w = 1270;
-      const h =600;
+      const h = 600;
+      const scale = d3.scaleLinear()
+     .domain([250, 500])
+    .range([10, 150]);
   
+
+    
       const svg = d3.select("body")
                     .append("svg")
                     .attr("width", w)
-                    .attr("height", h);
+                    .attr("height", h)
+                    .attr("class", "this")
   
       svg.selectAll("rect")
          .data(dataset)
          .enter()
          .append("rect")
-         .attr("x", (d, i) => { return i * 30 })
+         .attr("x", (d, i) => { return 10 + (i * 140) })
          .attr("y", (d, i) => {return h - 3 * d})
-         .attr("width", 25)
-         .attr("height", (d, i) => {return d *3})
+         .attr("width",100)
+         .attr("height", (d, i) => {return d * 3})
          .attr("fill", "purple")
+         .attr("class", "bar")
+         .append("title")
+         .text((d) => d)
+
+       svg.selectAll("text")  
+        .data(dataset)
+        .enter()
+        .append("text")
+     .attr("x", (d, i) => 60+ (i * 140))
+    .attr("y", (d, i) => h - 3 * d - 5)
+     .text((d, i ) => d)
+      
+
     </script>
   </body>
   
