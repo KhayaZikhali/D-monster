@@ -1,0 +1,61 @@
+/* describes the tooltip that created on hover */
+body {
+    align-self: center;
+    justify-content:center;
+    background-color: aliceblue;
+    height:150vh;
+}
+
+u {
+    color: black;
+    height: 3px;
+}
+
+h1 {
+    margin:auto;
+    width:50%;
+    border: 0px solid green;
+    text-align:center;
+}
+
+.tooltip {
+  color: transparent;
+}
+.tooltip:hover {
+    position: absolute;
+    visibility: hidden;
+    background-color: blue;
+    border: 1px solid;
+    border-width: 5px;
+    padding: 5px;
+    color: black;
+    }
+
+/* class describing the rect elements */
+.bar {
+    justify-content: center;
+}
+
+/* tooltip is used here */
+.bar:hover {
+    fill: red;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* class describing the body */
+.this {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding-bottom: 10px;
+    margin-top: 10%;
+
+}
+
+#title {
+    color: blue;
+    font-weight: bold;
+
+}
+
+

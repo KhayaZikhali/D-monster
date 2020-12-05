@@ -3,16 +3,22 @@
     <title> Data Chart</title>
     <script src="app.js"></script>
     <script src = "https://d3js.org/d3.v4.min.js"></script>
-    <link rel="stylesheet" href="styles.scss">
+    <link rel="stylesheet" href="styles.css">
     <style>
         svg {
        background-color:aliceblue;
+       margin-left: 30px;
+       align-self: center;
        }
     </style>
 </head>
 
 <body>
-    <h1></h1>
+    <h1 id="title"><u>Federal Reserve Economic Data</u></h1>
+    <!-- add yAxis scale -->
+    <!-- add division  -->
+    <!-- add title to the chart -->
+    <!-- the necesary touches -->
     <script>
       const dataset = [
       [
@@ -1116,35 +1122,49 @@
       18064.7
     ]
     ]
-    
-      const w = 1270;
+       const w = 1200;
       const h = 700;
-      const scale = d3.scaleLinear()
-       .domain([250, 500])
-       .range([10, 150]);
+      
+      const padding = 50;
+     
+     // Create an x and y scale
+ 
+     const xScale = d3.scaleLinear()
+                     .domain([0, d3.max(dataset, (d) => d[0])])
+                     .range([padding, w - padding]);
+ 
+     // Add your code below this line
+ 
+     const yScale = d3.scaleLinear()
+                     .domain([0, d3.max(dataset, (d) => d)])
+                     .range([h -padding, padding]);
 
+     // Add your code above this line
+     const yAxis = d3.axisLeft(yScale);
 
     // adjust porperties of the body
-    const svg = d3.select("body")
-                .append("svg")
-                .attr("width", w)
-                .attr("height", h)
-                .attr("class", "this")
+const svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h)
+            .attr("class", "this")
             
     // the qualitites of each of the rectangles
     svg.selectAll("rect")
-         .data(dataset)
-         .enter()
-         .append("rect")
-         .attr("x", (d, i) => {return 2 + i *4.6})
-         .attr("y", (d, i) => {return h-d[1]/28})
-         .attr("width", 4)
-         .attr("height", (d, i) => {return d[1]/28})
-         .attr("fill", "purple")
-         .attr("class", "bar")
-         .append("title")
-         .text((d) => d)
-         .text((d, i ) => d[0]) 
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => {return 8 + i *4.3}) 
+       .attr("y", (d, i) => {return h-d[1]/28})
+       .attr("width", 3)
+       .attr("height", (d, i) => {return d[1]/28})
+       .attr("fill", "purple") 
+       .attr("class", "bar")
+       .append("title")
+       .text((d) => d)
+       .text((d, i ) => d[0]) 
+       .append("div")
+       .attr("class", "tooltip")
     
     // the text above each of the bars     
     svg.selectAll("text")  
@@ -1154,7 +1174,12 @@
        .attr("x", (d, i) =>  (i * 200))
        .attr("y", (d, i) =>  h - d )
        .text((d, i ) => d[0])
-           
+    
+    svg.append("g")
+      .attr("transform", "translate(50,"  (padding) + ")")
+      .call(yAxis);   
+    
+
     </script>
 
   </body>

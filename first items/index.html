@@ -18,7 +18,7 @@
       
 
     // Padding between the SVG canvas boundary and the plot
-    const padding =50;
+    const padding = 50;
      
      // Create an x and y scale
  
@@ -26,14 +26,11 @@
                      .domain([0, d3.max(dataset, (d) => d[0])])
                      .range([padding, w - padding]);
  
-     // Add your code below this line
- 
      const yScale = d3.scaleLinear()
                      .domain([0, d3.max(dataset, (d) => d)])
                      .range([h -padding, padding]);
 
-     // Add your code above this line
-     const yAxis = d3.axisLeft(yScale);
+      const yAxis = d3.axisLeft(yScale);
 
       const svg = d3.select("body")
                     .append("svg")
@@ -55,17 +52,18 @@
          .append("title")
          .text((d) => d)
 
-       svg.selectAll("text")  
-        .data(dataset)
-        .enter()
-        .append("text")
-     .attr("x", (d, i) => padding + 10 +(i * 30))
-    .attr("y", (d, i) => h - 3 * d - 5 )
-     .text((d, i ) => d)
-       
-     svg.append("g")
-      .attr("transform", "translate(" + (padding) + ",50)")
-      .call(yAxis);
+      svg.selectAll("text")  
+         .data(dataset)
+         .enter()
+         .append("text")
+         .attr("x", (d, i) => padding + 10 +(i * 30))
+         .attr("y", (d, i) => h - 3 * d - 5 )
+         .text((d, i ) => d)
+         
+     
+      svg.append("g")
+         .attr("transform", "translate(" (padding) + ",50)")
+         .call(yAxims);
 
     </script>
   </body>
