@@ -1,9 +1,10 @@
 /* describes the tooltip that created on hover */
 body {
-    align-self: center;
-    justify-content:center;
+    align-self: left;
+    justify-content:left;
     background-color: aliceblue;
     height:150vh;
+    overflow-x: hidden;
 }
 
 u {
@@ -27,13 +28,13 @@ h1 {
     background-color: blue;
     border: 1px solid;
     border-width: 5px;
-    padding: 5px;
+    padding: 20px;
     color: black;
     }
 
 /* class describing the rect elements */
 .bar {
-    justify-content: center;
+    justify-content: left;
 }
 
 /* tooltip is used here */
@@ -45,17 +46,14 @@ h1 {
 
 /* class describing the body */
 .this {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    padding-bottom: 10px;
-    margin-top: 10%;
-
+    padding: 100px;
+    margin-left:1%;
+   padding:0;
 }
 
 #title {
     color: blue;
     font-weight: bold;
-
 }
 
 

@@ -15,8 +15,7 @@
 
 <body>
     <h1 id="title"><u>Federal Reserve Economic Data</u></h1>
-    <!-- add yAxis scale -->
-    <!-- add division  -->
+    <!-- add the -->
     <!-- add title to the chart -->
     <!-- the necesary touches -->
     <script>
@@ -1122,25 +1121,23 @@
       18064.7
     ]
     ]
-       const w = 1200;
-      const h = 700;
+       const w = 1300;
+      const h = 800;
       
       const padding = 50;
-     
+      
      // Create an x and y scale
  
      const xScale = d3.scaleLinear()
-                     .domain([0, d3.max(dataset, (d) => d[0])])
-                     .range([padding, w - padding]);
- 
-     // Add your code below this line
+                     .domain([0, d3.max(dataset, (d) => d)])
+                     .range([50, 1.5*h]);
  
      const yScale = d3.scaleLinear()
-                     .domain([0, d3.max(dataset, (d) => d)])
-                     .range([h -padding, padding]);
+                     .domain([0, d3.max(dataset, (d) => d[1])])
+                     .range([h-padding,padding]);
 
-     // Add your code above this line
      const yAxis = d3.axisLeft(yScale);
+     const xAxis = d3.axisBottom(xScale)
 
     // adjust porperties of the body
 const svg = d3.select("body")
@@ -1149,16 +1146,17 @@ const svg = d3.select("body")
             .attr("height", h)
             .attr("class", "this")
             
-    // the qualitites of each of the rectangles
+    // each of the rect elements
     svg.selectAll("rect")
        .data(dataset)
        .enter()
        .append("rect")
-       .attr("x", (d, i) => {return 8 + i *4.3}) 
-       .attr("y", (d, i) => {return h-d[1]/28})
+       .attr("x", (d, i) => {return 50 + i * 4.3}) 
+       .attr("y", (d, i) => {return  h-d[1]/28 -30 })
        .attr("width", 3)
        .attr("height", (d, i) => {return d[1]/28})
-       .attr("fill", "purple") 
+      // fill color as green if greater that previous value and green if greater than 
+       .attr("fill", "blue")
        .attr("class", "bar")
        .append("title")
        .text((d) => d)
@@ -1173,14 +1171,31 @@ const svg = d3.select("body")
        .append("text")
        .attr("x", (d, i) =>  (i * 200))
        .attr("y", (d, i) =>  h - d )
-       .text((d, i ) => d[0])
+       .text((d, i ) => d)
     
+    // yAxis label 
+    svg.append("text")
+       .attr("class", "y label")
+       .attr("text-anchor", "end")
+       .attr("y", -3)
+       .attr("dy", ".75em")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -320)
+       .attr("dx", ".75em")
+       .attr("transform", "rotate(-90)")
+       .text("Gross Domestic Product (Billions)");   
+
+
     svg.append("g")
-      .attr("transform", "translate(50,"  (padding) + ")")
-      .call(yAxis);   
-    
+      .attr("transform", "translate("+ (padding  ) + ",20)")
+      .call(yAxis);
+
+    svg.append("g")
+       .attr("transform", "translate(0,"+ (h-30) + ")")
+       .call(xAxis) 
+       .append("text")
+       .text("me and you")
 
     </script>
-
   </body>
   
