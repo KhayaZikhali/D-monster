@@ -15,6 +15,7 @@
 
 <body>
     <h1 id="title"><u>Federal Reserve Economic Data</u></h1>
+    <p>Units: Billions of Dollars\nSeasonal Adjustment: Seasonally Adjusted Annual Rate\nNotes: A Guide to the National Income and Product Accounts of the United States (NIPA) - (http://www.bea.gov/national/pdf/nipaguid.pdf)</p>
     <!-- add the -->
     <!-- add title to the chart -->
     <!-- the necesary touches -->
@@ -1121,7 +1122,7 @@
       18064.7
     ]
     ]
-       const w = 1300;
+       const w = 1400;
       const h = 800;
       
       const padding = 50;
@@ -1139,7 +1140,7 @@
      const yAxis = d3.axisLeft(yScale);
      const xAxis = d3.axisBottom(xScale)
 
-    // adjust porperties of the body
+    // adjust properties of the body
 const svg = d3.select("body")
             .append("svg")
             .attr("width", w)
@@ -1169,9 +1170,10 @@ const svg = d3.select("body")
        .data(dataset)
        .enter()
        .append("text")
-       .attr("x", (d, i) =>  (i * 200))
-       .attr("y", (d, i) =>  h - d )
-       .text((d, i ) => d)
+       .attr("x", (d, i) =>  (i *100))
+       .attr("y", (d, i) =>  h )
+       .text((d, i ) => d[0])
+       .attr("class", "xAxis")
     
     // yAxis label 
     svg.append("text")
@@ -1193,9 +1195,6 @@ const svg = d3.select("body")
     svg.append("g")
        .attr("transform", "translate(0,"+ (h-30) + ")")
        .call(xAxis) 
-       .append("text")
-       .text("me and you")
-
     </script>
   </body>
   

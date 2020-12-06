@@ -7,6 +7,13 @@ body {
     overflow-x: hidden;
 }
 
+p {
+    margin: auto;
+    width:90%;
+    padding: 10px;
+    
+}
+
 u {
     color: black;
     height: 3px;
@@ -17,6 +24,10 @@ h1 {
     width:50%;
     border: 0px solid green;
     text-align:center;
+}
+
+.xAxis {
+    font-size: 10px;
 }
 
 .tooltip {
