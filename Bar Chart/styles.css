@@ -4,7 +4,7 @@ body {
     justify-content:left;
     background-color: aliceblue;
     height:150vh;
-    overflow-x: hidden;
+    overflow-x:hidden;
 }
 
 p {
