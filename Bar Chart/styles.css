@@ -10,8 +10,7 @@ body {
 p {
     margin: auto;
     width:90%;
-    padding: 10px;
-    
+    padding: 10px;   
 }
 
 u {
@@ -28,20 +27,13 @@ h1 {
 
 .xAxis {
     font-size: 10px;
+    transform: rotate(90deg);
 }
 
-.tooltip {
-  color: transparent;
+.xlabel {
+    font-weight: bolder;
 }
-.tooltip:hover {
-    position: absolute;
-    visibility: hidden;
-    background-color: blue;
-    border: 1px solid;
-    border-width: 5px;
-    padding: 20px;
-    color: black;
-    }
+
 
 /* class describing the rect elements */
 .bar {
@@ -53,6 +45,7 @@ h1 {
     fill: red;
     cursor: pointer;
     position: absolute;
+
 }
 
 /* class describing the body */
@@ -67,4 +60,27 @@ h1 {
     font-weight: bold;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
