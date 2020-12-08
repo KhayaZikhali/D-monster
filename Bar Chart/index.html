@@ -15,12 +15,12 @@
 
 <body>
     <h1 id="title"><u>Federal Reserve Economic Data</u></h1>
-    <!-- add the -->
-    <!-- add title to the chart -->
+    <!-- add tooltip -->
     <!-- the necesary touches -->
+    <!-- create your resume  -->
+    <!-- Be Serious man -->
     <script>
      const dataset = [
-
   ["1947-01-01",243.1],
   ["1947-04-01", 246.3],
   ["1947-07-01", 250.1],
@@ -881,6 +881,7 @@ const svg = d3.select("body")
           .attr("height", h)
           .attr("class", "this")
           
+          
   // each of the rect elements
   svg.selectAll("rect")
      .data(dataset)
@@ -894,7 +895,6 @@ const svg = d3.select("body")
      .attr("class", "bar")
      .append("title")
      .text((d, i ) => d) 
-     .append("div")
      .attr("class", "tooltip")
   
   // the text above each of the bars     
