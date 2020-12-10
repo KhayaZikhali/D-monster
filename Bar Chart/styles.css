@@ -55,7 +55,7 @@ h1 {
    padding:0;
 }
 
-#title {
+.title {
     color: blue;
     font-weight: bold;
 }
@@ -63,20 +63,20 @@ h1 {
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: black;
-    color: #fff;
+    background-color: yellow;
+    color: green;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
-  
     /* Position the tooltip */
     position: absolute;
     z-index: 3;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
 .tooltip:hover .tooltiptext {
     visibility: visible;
+
     content:"wait a second most of the witnesses are dead"
   }
 
