@@ -875,12 +875,11 @@
    const xAxis = d3.axisBottom(xScale)
 
   // adjust properties of the body
-const svg = d3.select("body")
+  const svg = d3.select("body")
           .append("svg")
           .attr("width", w)
           .attr("height", h)
           .attr("class", "this")
-          
           
   // each of the rect elements
   svg.selectAll("rect")
@@ -896,7 +895,8 @@ const svg = d3.select("body")
      .append("title")
      .attr("class", "tooltip tooltiptext") 
      .text(((d, i ) => "$"+ d[1] + " "+"," + d[0]) )
-     .attr("class" , "title")     
+     .attr("class" , "title")   
+
   // the text above each of the bars     
   svg.selectAll("text")  
      .data(dataset)
