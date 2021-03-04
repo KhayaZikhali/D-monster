@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <h1 id="title"><u></u></h1>
+    <h1 id="title"><u>   </u></h1>
     <script>
 
 let dataset = [ [
@@ -33,7 +33,6 @@ let dataset = [ [
       "1947-10-01",
       260.3
     ] ]
-let description;
 
 const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json`
       fetch(api)
@@ -41,11 +40,11 @@ const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData
           .then(data => {
             dataset.push(data);
             //Sets the title of
- p            //pushes the description to the p tags 
+            document.querySelector('#title').textContent = dataset[0].source_name;
+            //pushes the description to the p tags 
             console.log((JSON.stringify(dataset[0].description)))
-            document.querySelector('.description').textContent = dataset[0].description
+            document.querySelector('.description').textContent = dataset[0].description;
       });
-         console.log(description);
 // Description of the bar graph 
 
 //width of the bar chart 
