@@ -10,7 +10,9 @@ body {
 p {
     margin: auto;
     width:90%;
-    padding: 10px;   
+    padding: 10px;  
+    margin-top: 2%; 
+    color : black ;
 }
 
 u {
@@ -85,4 +87,3 @@ h1 {
 
     content:"wait a second most of the witnesses are dead"
   }
-
