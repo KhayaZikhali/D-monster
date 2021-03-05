@@ -26,10 +26,11 @@ const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData
           .then(data => {
              document.querySelector('.description').innerHTML = data.description
              document.querySelector('#title').innerHTML = data.source_name
-             dataset.push(Array.from(data.data))
+             for(x in data.data){
+             dataset.push(data.data[x])
+             }
           })
-            console.log(dataset);
-
+console.log(dataset)
 // Description of the bar grap
 //width of the bar chart 
 
