@@ -15,10 +15,6 @@
 
 <body>
     <h1 id="title"><u></u></h1>
-    <!-- add tooltip -->
-    <!-- the necesary touches -->
-    <!-- create your resume  -->
-    <!-- Be Serious man -->
     <script>
 
 const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json`
@@ -32,8 +28,8 @@ const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData
     const padding = 50;
     
 // Thi title and description of the page 
-document.querySelector('.description').innerHTML = data.description
-             document.querySelector('#title').innerHTML = data.source_name
+   document.querySelector('.description').innerHTML = data.description
+   document.querySelector('#title').innerHTML = data.source_name
 
    // Create an x and y scale
    const xScale = d3.scaleLinear()
@@ -90,7 +86,8 @@ document.querySelector('.description').innerHTML = data.description
      .attr("dx", ".75em")
      .attr("transform", "rotate(-90)")
      .text("Gross Domestic Product (Billions)");   
-  
+
+// xAxis Label   
   svg.append("text")
      .attr("class", "xlabel")
      .attr("text-anchor", "end")
@@ -102,11 +99,11 @@ document.querySelector('.description').innerHTML = data.description
      .attr("transform", "rotate(0)")
      .text("Years ("+ d3.min(dataset, (d) => d[0]) +  "   --   "+d3.max(dataset, (d) => d[0]) +  ")");   
 
-
+// call the yAxis
   svg.append("g")
     .attr("transform", "translate("+ (padding  ) + ",20)")
     .call(yAxis);
-
+//call the xAxis 
   svg.append("g")
      .attr("transform", "translate(0,"+ (h-30) + ")")
      .call(xAxis) 
