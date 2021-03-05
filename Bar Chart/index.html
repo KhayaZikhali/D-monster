@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Data Chart</title>
+    <title> Data Chart</title>
     <script src="app.js"></script>
     <script src = "https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -14,30 +14,27 @@
 </head>
 
 <body>
-    <h1 id="title"><u>   </u></h1>
+    <h1 id="title"><u></u></h1>
+    <!-- add tooltip -->
+    <!-- the necesary touches -->
+    <!-- create your resume  -->
+    <!-- Be Serious man -->
     <script>
-
-
-var dataset = [];
 
 const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json`
       fetch(api)
           .then(response => { return response.json()})
           .then(data => {
-             document.querySelector('.description').innerHTML = data.description
-             document.querySelector('#title').innerHTML = data.source_name
-             for(x in data.data){
-             dataset.push(data.data[x])
-             }
-          })
-console.log(dataset)
-// Description of the bar grap
-//width of the bar chart 
-
-const w = 1400;
+             dataset = (data.data) 
+    const w = 1400;
     const h = 800;
+    
     const padding = 50;
     
+// Thi title and description of the page 
+document.querySelector('.description').innerHTML = data.description
+             document.querySelector('#title').innerHTML = data.source_name
+
    // Create an x and y scale
    const xScale = d3.scaleLinear()
                    .domain([0, d3.max(dataset, (d) => d)])
@@ -92,9 +89,8 @@ const w = 1400;
      .attr("x", -320)
      .attr("dx", ".75em")
      .attr("transform", "rotate(-90)")
-     .text("(Billions)");   
+     .text("Gross Domestic Product (Billions)");   
   
-     // x-Axis label 
   svg.append("text")
      .attr("class", "xlabel")
      .attr("text-anchor", "end")
@@ -104,7 +100,7 @@ const w = 1400;
      .attr("x", 700)
      .attr("dx", "0em")
      .attr("transform", "rotate(0)")
-     .text("Years ( - 2015)");   
+     .text("Years ("+ d3.min(dataset, (d) => d[0]) +  "   --   "+d3.max(dataset, (d) => d[0]) +  ")");   
 
 
   svg.append("g")
@@ -113,8 +109,9 @@ const w = 1400;
 
   svg.append("g")
      .attr("transform", "translate(0,"+ (h-30) + ")")
-     .call(xAxis)
+     .call(xAxis) 
 
+          })
     </script>
-    <p class="description">   </p>
+    <p class="description"></p>
   </body>
