@@ -4,7 +4,7 @@ body {
     justify-content:left;
     background-color: aliceblue;
     height:150vh;
-    overflow-x:hidden;
+    overflow-x: scroll;
 }
 
 p {
@@ -66,7 +66,6 @@ h1 {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
-    content: 'That my shit ';
 }
 
 .tooltip .tooltiptext {
@@ -84,6 +83,4 @@ h1 {
   
 .tooltip:hover .tooltiptext {
     visibility: visible;
-
-    content:"wait a second most of the witnesses are dead"
   }

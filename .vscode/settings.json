@@ -1,4 +1,9 @@
 {
     "liveServer.settings.port": 5502,
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "diffEditor.wordWrap": "on",
+    "diffEditor.codeLens": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.quickSuggestionsDelay": 100
 }

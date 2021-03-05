@@ -17,44 +17,27 @@
     <h1 id="title"><u>   </u></h1>
     <script>
 
-let dataset = [ [
-      "1947-01-01",
-      243.1
-    ],
-    [
-      "1947-04-01",
-      246.3
-    ],
-    [
-      "1947-07-01",
-      250.1
-    ],
-    [
-      "1947-10-01",
-      260.3
-    ] ]
+
+var dataset = [];
 
 const api = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json`
       fetch(api)
           .then(response => { return response.json()})
           .then(data => {
-            dataset.push(data);
-            //Sets the title of
-            document.querySelector('#title').textContent = dataset[0].source_name;
-            //pushes the description to the p tags 
-            console.log((JSON.stringify(dataset[0].description)))
-            document.querySelector('.description').textContent = dataset[0].description;
-      });
-// Description of the bar graph 
+             document.querySelector('.description').innerHTML = data.description
+             document.querySelector('#title').innerHTML = data.source_name
+             dataset.push(Array.from(data.data))
+          })
+            console.log(dataset);
 
+// Description of the bar grap
 //width of the bar chart 
+
 const w = 1400;
     const h = 800;
-    
     const padding = 50;
     
    // Create an x and y scale
-
    const xScale = d3.scaleLinear()
                    .domain([0, d3.max(dataset, (d) => d)])
                    .range([50, 1.54*h]);
@@ -108,8 +91,9 @@ const w = 1400;
      .attr("x", -320)
      .attr("dx", ".75em")
      .attr("transform", "rotate(-90)")
-     .text("Gross Domestic Product (Billions)");   
+     .text("(Billions)");   
   
+     // x-Axis label 
   svg.append("text")
      .attr("class", "xlabel")
      .attr("text-anchor", "end")
@@ -119,7 +103,7 @@ const w = 1400;
      .attr("x", 700)
      .attr("dx", "0em")
      .attr("transform", "rotate(0)")
-     .text("Years (1945 - 2015)");   
+     .text("Years ( - 2015)");   
 
 
   svg.append("g")
