@@ -15,17 +15,17 @@ const color = [
   "#5C6BC0",
   "#42A5F5",
   "#29B6F6",
+  "#00E676",
   "#66BB6A",
   "#9CCC65",
   "#D4E157",
-  "#00E676",
   "#FFEE58",
   "#FFCA28",
   "#FFA726",
+  "#455A64",
   "#FF7043",
   "#8D6E63",
   "#BDBDBD",
-  "#455A64"
 ];
 const categoryWiseColor = {};
 
@@ -90,7 +90,7 @@ function createTreeMap() {
   const treeMap = d3.treemap();
   treeMap.size([width, height - topPadding]).paddingInner(1);
   treeMap(root);
-  ems
+  
   // size of the it
   const leaves = root.leaves();
   const categoryColor = function(category) {
@@ -132,12 +132,12 @@ function createTreeMap() {
     .range([topPadding, height]);
   
   // the rect item in 
-  const rect = svg
-    .selectAll("rect")
+  const rect = svg.selectAll("rect")
     .data(leaves)
     .enter()
     .append("rect")
     .attr("class", "tile")
+    .text("hello")
     .attr("fill", d => categoryColor(d.data.category))
     .attr("x", d => xScale(d.x0))
     .attr("y", d => yScale(d.y0))
@@ -146,11 +146,13 @@ function createTreeMap() {
     .attr("data-name", d => d.data.name)
     .attr("data-category", d => d.data.category)
     .attr("data-value", d => d.value)
-
+    .append('text')
+    .text('hello')
+    .attr('x', 50)
+    .attr('y', 150)
+    .attr('fill', 'black')
     //append text to the rect's
-  const te = rect.append("text")
-                  .text("hello")
-
+ 
   // legend class at the bottom of the page  
   const legend = svg.append("g").attr("id", "legend");
 

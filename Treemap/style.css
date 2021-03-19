@@ -41,3 +41,9 @@
   td {
     text-align: center;
   }
+
+  .text {
+      color:black;
+      justify-self: center;
+      
+  }
